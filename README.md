@@ -93,13 +93,17 @@ Main tables include:
 ```text
 Trekking_Management/
 │
-├── app.py
+├── app.py 
 ├── config.py
-├── requirements.txt
+├── file1.py
+|
 │
 ├── folder2/
 │   ├── __init__.py
 │   └── models.py
+|   |── forms.py
+|   |── auth.py
+|   |── utils.py
 │
 ├── templates/
 │   ├── base.html
@@ -116,4 +120,4 @@ Trekking_Management/
 │   └── css/
 │       └── style.css
 │
-└── README.md
+└── project_report
