@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<a href="/add_trek">Add Trek</a>
+<br><br>
+<a href="/logout">Logout</a>
+
+<hr>
+
+<h2>Treks</h2>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Difficulty</th>
+    <th>Slots</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for trek in treks %}
+
+<tr>
+    <td>{{ trek.id }}</td>
+    <td>{{ trek.trek_name }}</td>
+    <td>{{ trek.location }}</td>
+    <td>{{ trek.difficulty }}</td>
+    <td>{{ trek.slots }}</td>
+    <td>{{ trek.status }}</td>
+
+    <td>
+        <a href="/delete_trek/{{ trek.id }}">Delete</a>
+    </td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Pending Staff Approvals</h2>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Action</th>
+</tr>
+
+{% for staff in pending_staff %}
+
+<tr>
+    <td>{{ staff.id }}</td>
+    <td>{{ staff.name }}</td>
+    <td>{{ staff.email }}</td>
+
+    <td>
+        <a href="/approve_staff/{{ staff.id }}">Approve</a>
+    </td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h2>Assign Staff to Trek</h2>
+
+<table border="1">
+
+<tr>
+    <th>Trek</th>
+    <th>Assigned Staff ID</th>
+    <th>Assign</th>
+</tr>
+
+{% for trek in treks %}
+
+<tr>
+    <td>{{ trek.trek_name }}</td>
+    <td>{{ trek.staff_id }}</td>
+
+    <td>
+        <form action="/assign_staff/{{ trek.id }}" method="POST">
+
+            <input type="number"
+                   name="staff_id"
+                   placeholder="Staff ID"
+                   required>
+
+            <button type="submit">Assign</button>
+
+        </form>
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

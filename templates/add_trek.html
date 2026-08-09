@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Trek</title>
+</head>
+<body>
+
+<h2>Add Trek</h2>
+
+<form method="POST">
+
+    Trek Name:<br>
+    <input type="text" name="trek_name" required><br><br>
+
+    Location:<br>
+    <input type="text" name="location" required><br><br>
+
+    Difficulty:<br>
+    <select name="difficulty">
+        <option>Easy</option>
+        <option>Moderate</option>
+        <option>Hard</option>
+    </select><br><br>
+
+    Duration (Days):<br>
+    <input type="number" name="duration" required><br><br>
+
+    Available Slots:<br>
+    <input type="number" name="slots" required><br><br>
+
+    Start Date:<br>
+    <input type="date" name="start_date" required><br><br>
+
+    End Date:<br>
+    <input type="date" name="end_date" required><br><br>
+
+    <button type="submit">Add Trek</button>
+
+</form>
+
+<br>
+
+<a href="/admin">Back</a>
+
+</body>
+</html>
